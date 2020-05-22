@@ -1,0 +1,68 @@
+spring:
+    application:
+      name: Aladdin BIM cloud platform
+    profiles:
+      active: dev
+    datasource:
+        name: test
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+
+## Mybatis 配置
+mybatis:
+    mapperLocations: classpath:mapper/*.xml
+    typeAliasesPackage: com.mood.entity
+    configuration:
+        map-underscore-to-camel-case: true # 开启驼峰命名规则
+        use-generated-keys: true  # 使用jdbc的getGeneratedKeys 获取数据库自增主键
+        use-column-label: true # 使用列名替换别名 默认为true
+
+# 通用mapper
+mapper:
+    #mappers 多个接口时逗号隔开
+    not-empty: false
+    identity: MYSQL
+
+#pagehelper分页插件配置
+pagehelper:
+    helperDialect: mysql
+    pagehelper: reasonable=true
+    supportMethodsArguments: true
+    params: count=countSql
+
+wx:
+    appid: wx9edff7d79255744d
+    messageUrl: https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send
+    token: https://api.weixin.qq.com/cgi-bin/token
+    orderPayId: YRDFpUitl3p3trojTkJGD3JghLkbLZ7H9FkJkEcPi68
+    sendGoodsId: LrGEj20G0VKxTZUJk-8nZTFi7cP6rWgD8jw5pdY71KY
+    receiveGoodsId: QJFU7QqVsD9e2u0m8pUfvVlluhMnv3JnZp0p3jaDV1c
+    appid2: wx69f7eabb29bbc277
+    #微信支付的商户id
+    mch_id: 1504437701
+    #微信支付的商户密钥
+    key: bf25368595ca43c1bf4598bcd605a851
+    #签名方式
+    SIGNTYPE: MD5
+    #交易类型
+    TRADETYPE: JSAPI
+    #微信统一下单接口地址
+    pay_url: https://api.mch.weixin.qq.com/pay/unifiedorder
+
+oss:
+
+

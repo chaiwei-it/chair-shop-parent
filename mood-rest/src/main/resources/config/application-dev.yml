@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://120.77.3.111:3306/rebate_address?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password:
+
+server:
+  port: 9003
+
+logging:
+  com.mood.config: classpath:logback-spring.xml
+  level: debug
+
+wx:
+  #支付成功后的服务器回调url
+  notify_url: http://rest.vipgz1.idcfengye.com/api/v1/wxpay/wxNotify

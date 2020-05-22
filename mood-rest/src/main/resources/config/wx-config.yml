@@ -1,0 +1,5 @@
+zh_CN:
+  url: https://api.weixin.qq.com/sns/jscode2session
+  appid: wx9edff7d79255744d
+  secret: 9aa683e985520374215beab081b45db5
+  grantType:
